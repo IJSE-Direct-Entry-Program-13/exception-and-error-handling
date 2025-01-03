@@ -6,6 +6,7 @@ public class Demo2 {
                 System.out.println("I am about to exit");
             }
         });
+
         System.out.println("In: main");
         try {
             myMethod1();
@@ -21,7 +22,8 @@ public class Demo2 {
         }catch (ArithmeticException e){
             System.out.println("Got an exception");
         }finally {
-            if (true) return;
+            //if (true) return;
+            System.out.println("Hello");
         }
         System.out.println("Out: myMethod1");
     }
