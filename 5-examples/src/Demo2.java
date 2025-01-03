@@ -7,7 +7,11 @@ public class Demo2 {
             }
         });
         System.out.println("In: main");
-        myMethod1();
+        try {
+            myMethod1();
+        }catch (Exception e) {
+            System.out.println("Got you finally");
+        }
         System.out.println("Out: main");
     }
     public static void myMethod1(){
