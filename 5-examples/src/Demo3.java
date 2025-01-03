@@ -1,5 +1,7 @@
+import java.time.Duration;
+
 public class Demo3 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Thread.currentThread().setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread t, Throwable e) {
@@ -9,14 +11,13 @@ public class Demo3 {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread t, Throwable e) {
-                System.out.println("Let's exit this crazy");
+                System.out.println("Let's exit this is crazy");
             }
         });
+
         System.out.println("In: main");
         try {
-            new Thread(()->{
-                myMethod1();
-            }).start();
+            new Thread(Demo3::myMethod1).start();
         }catch (Exception e) {
             System.out.println("Got you");
         }
@@ -46,7 +47,7 @@ public class Demo3 {
             }catch (NullPointerException e){
                 return d1;
             }finally {
-                System.out.println("Out: myMethod2");
+                System.out.println("Out Inner Finally: myMethod2");
             }
         }
     }
